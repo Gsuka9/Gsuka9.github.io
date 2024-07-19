@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Enchanted Forest Lodge</title>
+    <style>
+        body {
+            font-family: 'Arial, sans-serif';
+            margin: 0;
+            padding: 0;
+            background-color: #0e577e;
+            color: black;
+        }
+        header {
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            max-height: 400px;
+        }
+        nav {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        nav ul li a:hover {
+            color: rgb(16, 169, 118);
+            cursor: pointer;
+        }
+        section {
+            padding: 50px 20px;
+            max-height: 600px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .gallery img {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .testimonials {
+            background: #2d4b6e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .testimonials blockquote {
+            font-style: italic;
+            color: #191414;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .testimonial-author {
+            text-align: right;
+            font-weight: bold;
+        }
+        .booking-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="register.html">Book Now</a></li>
+        </ul>
+    </nav>
+    <header id="home">
+        <h1>Enchanted Forest Lodge</h1>
+        <p>Where Comfort Meets Nature</p>
+    </header>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to the Enchanted Forest Lodge, a haven of tranquility nestled in the heart of nature. Our lodge offers a perfect blend of rustic charm and modern amenities, ensuring a memorable stay for all our guests.</p>
+        <p>Feel free to escape all your problems and and let nature Enchanted Forest Lodge relieve you</p>
+        <p>Expect to encounter fantastic rooms with a great view to the Enchanted Forest</p>
+    </section>
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="room1 (1).jpeg" alt="Room 1">
+            <img src="room1 (2).jpeg" alt="Room 1">
+            <img src="room1 (3).jpeg" alt="Room 2">
+            <img src="room1 (4).jpeg" alt="Room 3">
+            <img src="room1 (5).jpeg" alt="Room 4">
+        </div>
+    </section>
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonials">
+            <blockquote>Instagram: "A truly magical experience! The lodge is beautiful and the service is impeccable."</blockquote>
+            <p class="testimonial-author">- Jane Doe</p>
+            <blockquote>Twitter: "The perfect getaway. We felt so relaxed and rejuvenated after our stay."</blockquote>
+            <p class="testimonial-author">- John Smith</p>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>For inquiries and reservations, please call us at (255) 695 042 280 or email us at <a href="mailto:info@enchantedforestlodge.com">info@enchantedforestlodge.com</a></p>
+        <div class="social-media-icons">
+            <a href="https://www.facebook.com" target="_blank"><img src="Facebook.png"></a>
+            <a href="https://www.Instagram.com" target="_blank"><img src="Instagram.png"></a> 
+            <a href="https://www.twitter.com" target="_blank"><img src="Twiter (1).png"></a> 
+            <a href="https://www.youtube.com" target="_blank"><img src="youtube.png"></a>  
+        </div>
+    </section>
+    <footer>
+        &copy; 2024 Enchanted Forest Lodge. All rights reserved.
+    </footer>
+</body>
+</html>
