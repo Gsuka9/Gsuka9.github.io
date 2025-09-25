@@ -28,7 +28,9 @@ body {
 
 /* Header */
 .topnav {
-  background-color: var(--secondary);
+  background: linear-gradient(90deg, var(--secondary) 0%, var(--dark-blue) 50%, var(--secondary) 100%);
+  background-size: 200% 100%;
+  animation: gradientFlow 8s ease infinite;
   padding: 15px 5%;
   display: flex;
   justify-content: space-between;
@@ -37,42 +39,77 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: box-shadow 0.3s ease;
+}
+
+.topnav.scrolled {
+  box-shadow: 0 4px 25px rgba(1, 180, 228, 0.4);
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .logo {
   color: var(--white);
   text-decoration: none;
-  font-size: 1.8rem;
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   transition: all 0.3s ease;
 }
 
 .logo i {
   color: var(--primary);
+  font-size: 2rem;
+  transition: all 0.3s ease;
 }
 
 .logo:hover {
   transform: scale(1.05);
+  text-shadow: 0 0 10px rgba(1, 180, 228, 0.5);
+}
+
+.logo:hover i {
+  transform: rotate(360deg);
 }
 
 .main-nav {
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 .main-nav a {
   color: var(--white);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  position: relative;
   transition: all 0.3s ease;
-  padding: 8px 12px;
-  border-radius: 20px;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 15px;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+  width: calc(100% - 30px);
 }
 
 .main-nav a:hover {
@@ -80,19 +117,25 @@ body {
   color: var(--primary);
 }
 
+.main-nav a.active {
+  background-color: rgba(1, 180, 228, 0.3);
+  color: var(--primary);
+}
+
 .main-nav a i {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 /* Search Form */
 .search-container {
   width: 400px;
+  transition: transform 0.3s ease;
 }
 
 form {
   background-color: var(--light-navy);
   border-radius: 30px;
-  padding: 8px 15px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
@@ -101,14 +144,15 @@ form {
 
 form:focus-within {
   border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(1, 180, 228, 0.3);
+  box-shadow: 0 0 12px rgba(1, 180, 228, 0.5);
+  transform: scale(1.02);
 }
 
 input {
   background: transparent;
   border: none;
   color: var(--white);
-  padding: 8px;
+  padding: 10px;
   width: 100%;
   outline: none;
   font-size: 1rem;
@@ -123,12 +167,52 @@ form button {
   border: none;
   color: var(--text-gray);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition: all 0.3s ease;
 }
 
 form button:hover {
   color: var(--primary);
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments for search */
+@media (max-width: 768px) {
+  .search-container {
+    order: 3;
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .search-container.loading::after {
+    right: 30px;
+  }
+}
+
+/* Responsive adjustments for navigation */
+@media (max-width: 768px) {
+  .topnav {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .search-container {
+    width: 100%;
+  }
+  
+  .main-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .main-nav a {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    font-size: 1rem;
+  }
 }
 
 /* Movie Grid */
@@ -366,8 +450,6 @@ main {
   }
 }
 
-/* Add these to your existing CSS */
-
 /* Search results styles */
 .no-results {
   grid-column: 1 / -1;
@@ -426,8 +508,6 @@ main {
   }
 }
 
-/* Add these to your existing CSS */
-
 /* Active nav link */
 .main-nav a.active {
   background-color: rgba(1, 180, 228, 0.3);
@@ -444,21 +524,6 @@ main {
 .category-loading .movie-card {
   animation: pulse 1.5s infinite ease-in-out;
 }
-
-/* Responsive adjustments for navigation */
-@media (max-width: 768px) {
-  .main-nav {
-    overflow-x: auto;
-    padding-bottom: 10px;
-    justify-content: flex-start;
-  }
-  
-  .main-nav a {
-    flex-shrink: 0;
-  }
-}
-
-/* Add these to your existing CSS */
 
 /* Toast message */
 .toast-message {
@@ -677,4 +742,3 @@ main {
     flex-wrap: wrap;
   }
 }
-
