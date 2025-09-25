@@ -3,51 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MovieDB - Discover Popular Films</title>
+  <title>MovieDB</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topnav">
-    <div class="logo-container">
-      <a href="#" class="logo">
-        <i class="fas fa-film"></i>
-        <span>MovieDB</span>
-      </a>
-    </div>
+    <a href="/" class="logo">
+      <i class="fas fa-film"></i>
+      MovieDB
+    </a>
+    <nav class="main-nav">
+      <a href="#" data-category="popular-movies"><i class="fas fa-fire"></i> Popular Movies</a>
+      <a href="#" data-category="top_rated-movies"><i class="fas fa-star"></i> Top Rated Movies</a>
+      <a href="#" data-category="upcoming-movies"><i class="fas fa-clock"></i> Upcoming Movies</a>
+      <a href="#" data-category="popular-series"><i class="fas fa-tv"></i> Popular Series</a>
+    </nav>
     <div class="search-container">
-      <form id="form" role="search">
+      <form id="form">
+        <input type="text" id="query" placeholder="Search for movies or series...">
         <button type="submit"><i class="fas fa-search"></i></button>
-        <input type="search" id="query" placeholder="Search movies..." aria-label="Search movies">
       </form>
     </div>
-    <nav class="main-nav">
-      <a href="#" data-category="popular"><i class="fas fa-fire"></i> Popular</a>
-      <a href="#" data-category="top_rated"><i class="fas fa-star"></i> Top Rated</a>
-      <a href="#" data-category="upcoming"><i class="fas fa-clock"></i> Upcoming</a>
-    </nav>
   </header>
-  
+
   <main>
-    <section id="section" class="movie-grid">
-      <!-- Movies will be inserted here -->
-    </section>
-    
+    <section id="section" class="movie-grid"></section>
     <div id="loader" class="loader"></div>
-    
     <button id="load-more" class="load-more-btn">
-      <span>Load More</span>
-      <i class="fas fa-chevron-down"></i>
+      Load More <i class="fas fa-plus"></i>
     </button>
   </main>
-  
-  
+
   <footer class="app-footer">
     <div class="footer-content">
-      <p>© 2023 MovieDB. All rights reserved.</p> 
-  </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+      <p>© 2023 MovieDB. All rights reserved.</p>
     </div>
   </footer>
-  
+
   <script src="script.js"></script>
 </body>
 </html>
