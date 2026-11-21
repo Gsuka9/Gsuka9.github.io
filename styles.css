@@ -147,6 +147,13 @@ a { color: inherit; text-decoration: none; }
   z-index: 4;
   width: 66%;
   max-width: 980px;
+  animation: heroFloatFresh 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes heroFloatFresh {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateZ(0); }
+  50% { transform: translate3d(0, -10px, 0) rotateZ(-0.12deg); }
 }
 
 .eyebrow {
@@ -191,14 +198,7 @@ a { color: inherit; text-decoration: none; }
 
 .title-line > span {
   display: block;
-  transform: translateY(110%);
-  animation: titleIn 1.05s cubic-bezier(.16,1,.3,1) forwards;
-}
-
-.title-line:nth-child(2) > span { animation-delay: 0.12s; }
-
-@keyframes titleIn {
-  to { transform: translateY(0); }
+  transform: translateY(0);
 }
 
 .title-outline {
@@ -255,25 +255,28 @@ a { color: inherit; text-decoration: none; }
   bottom: -20px;
   width: min(35vw, 520px);
   height: 78%;
-  opacity: 0;
+  opacity: 1;
   transform-style: preserve-3d;
   transform-origin: 50% 75%;
-  animation: portraitIn 1.55s .18s cubic-bezier(.16,1,.3,1) forwards;
+  animation: headshotLiveFloat 4.8s cubic-bezier(.45,0,.55,1) infinite !important;
+  will-change: transform;
 }
 
-@keyframes portraitIn {
-  0% {
-    opacity: 0;
-    transform: translate3d(70px, 110px, -420px) scale(.82) rotateY(-12deg);
-    filter: blur(12px);
+@keyframes headshotLiveFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotateZ(0deg) rotateY(-1deg) scale(1);
   }
-  65% {
-    opacity: .72;
+  20% {
+    transform: translate3d(-14px, -18px, 34px) rotateZ(-1.2deg) rotateY(3deg) scale(1.012);
   }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1) rotateY(0);
-    filter: blur(0);
+  45% {
+    transform: translate3d(8px, -34px, 48px) rotateZ(0.8deg) rotateY(-3deg) scale(1.018);
+  }
+  70% {
+    transform: translate3d(20px, -20px, 38px) rotateZ(1deg) rotateY(-2deg) scale(1.014);
+  }
+  85% {
+    transform: translate3d(6px, -7px, 18px) rotateZ(0.2deg) rotateY(1deg) scale(1.006);
   }
 }
 
@@ -284,7 +287,6 @@ a { color: inherit; text-decoration: none; }
   border-radius: 48% 48% 4px 4px;
   mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
   transform-style: preserve-3d;
-  transition: transform .18s linear;
 }
 
 .portrait-frame img {
@@ -555,6 +557,16 @@ a { color: inherit; text-decoration: none; }
 .project-card {
   perspective: 1200px;
   transform-style: preserve-3d;
+}
+@media (pointer:fine) {
+  .project-card .project-image {
+    transform-style: preserve-3d;
+    transition: transform .18s ease-out, filter .35s;
+  }
+
+  .project-card .project-image.tilt-active {
+    will-change: transform;
+  }
 }
 .project-image {
   position: relative;
